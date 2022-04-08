@@ -25,5 +25,6 @@ public class Main {
         	i1.avanzar(); //O(1)
         	System.out.print(val + " ");
         }
+        //No tiene ninguna ventaja computacional y da error porque la lista no es iterable
     }
 }
