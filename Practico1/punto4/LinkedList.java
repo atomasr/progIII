@@ -1,4 +1,6 @@
-package punto1;
+package punto4;
+
+import punto1.Node;
 
 public class LinkedList<T> {
 
@@ -15,6 +17,22 @@ public class LinkedList<T> {
     public Node<T> getFirst() {
 		return first;
 	}
+
+    public int indexOf(T elem) {
+    	if (first != null) {
+    		int indice = 0;
+    		Node<T> current = first;
+    		while (current != null) {
+    			if (current.getValue().equals(elem)) {
+    				return indice;
+    			} else {
+    				indice++;
+    				current = current.getNext();
+    			}
+    		}
+    	}
+    	return -1;
+    }
 
 	public void insertFront(T o) {
     	Node<T> tmp = new Node<>(o, null);
