@@ -1,0 +1,10 @@
+Complejidad computacional:
+Insertar al principio:
+	Array = O(n)
+	List = O(1)
+Buscar elemento en posición:
+	Array = O(1)
+	List = O(n)
+Determinar cantidad de elementos:
+	Array = O(1)
+	List = O(n) que con auxiliar puede ser O(1)
