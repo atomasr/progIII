@@ -9,20 +9,28 @@ public class LinkedList<T> {
         first = null;
         size = 0;
     }
+    
+    
+    
+    public Node<T> getFirst() {
+		return first;
+	}
 
-    public void insertFront(T o) {
+
+
+	public void insertFront(T o) {
     	Node<T> tmp = new Node<>(o, null);
         tmp.setNext(first);
         first = tmp;
         size++;
     }
 
-    public T extractFront() {
+    public Node<T> extractFront() {
         if (first != null) {
             Node<T> tmp = first;
             Node<T> cursor = first.getNext();
             first = cursor;
-            return tmp.getValue();
+            return tmp;
         }
         return null;
     }
