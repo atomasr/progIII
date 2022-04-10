@@ -1,14 +1,20 @@
 package punto_2_1;
 
 public class Main {
-
+	
 	private static int[] arreglo = {1, 2, 3, 4, 5};
 	private static int max = arreglo.length;;
-
-	public static void main(String[] args) {
+	/* public static void main(String[] args) {
 		
 		System.out.println("El arreglo " + arreglo + " esta ordenado: " + estaOrdenado(0));
 		// Stack Overflow :(
+	}*/
+	
+	public static void main(String[] args) {
+		int[] arr = {1,3,54,89,90};
+		Recursion r1 = new Recursion(arr);
+		System.out.println(r1.IsOrder(0));
+
 	}
 	
 	public static boolean estaOrdenado(int pos) {
