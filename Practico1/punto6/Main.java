@@ -46,7 +46,7 @@ public class Main {
     	while (current1 != null) {
     		estaEnLista = lista2.buscar(current1.getValue());
     		if (estaEnLista) {
-    			listaFinal.insertByOrder(current1.getValue(), c1);
+    			listaFinal.insertByOrder(current1.getValue(), c1); //falta ver como insertar correctamente
     		}
     		current1 = current1.getNext();
     	}

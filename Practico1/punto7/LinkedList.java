@@ -1,6 +1,4 @@
-package punto6;
-
-import java.util.Comparator;
+package punto7;
 
 public class LinkedList<T> {
 
@@ -22,38 +20,6 @@ public class LinkedList<T> {
     	Node<T> tmp = new Node<>(o, null);
         tmp.setNext(first);
         first = tmp;
-        size++;
-    }
-	
-	public boolean buscar(T value) {
-		Node<T> current = first;
-    	while (current != null) {
-    		if (current.getValue() == value) {
-    			return true;
-    		} else {
-    			current = current.getNext();
-    		}
-    	}
-		return false;
-	}
-	
-	public void insertByOrder(T o, Comparator<Node> comp) {
-    	Node<T> tmp = new Node<>(o, null);
-    	Node<T> current = first;
-    	if (current != null) {
-	    	while ((current.getNext() != null)&&(comp.compare(tmp, current) >= 0)) {
-	    		current = current.getNext();
-	    	}
-	    	if (current.getNext() == null) {
-	    		current.setNext(tmp);
-	    	} else {
-	    		tmp.setNext(current.getNext());
-	            current.setNext(tmp);
-	    	}
-    	} else {
-    		first = tmp;
-    	}
-    	
         size++;
     }
 
@@ -101,5 +67,4 @@ public class LinkedList<T> {
     public void print() {
         System.out.println("LinkedList(" + this.size() + "): " + this + " " + this.isEmpty());
     }
-
 }
