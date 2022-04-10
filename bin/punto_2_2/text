@@ -1,0 +1,36 @@
+Ejercicio 2.
+Implemente un algoritmo recursivo para buscar un elemento en una lista simple.
+Implemente, además, un algoritmo recursivo para buscar un elemento en un arreglo ordenado
+ascendentemente [1 2 3 …].
+1. ¿Qué complejidad O tienen estos algoritmos?
+2. ¿En qué afecta la estructura a estos algoritmos?
+3. ¿Cambia algo que la estructura esté ordenada?
+
+public boolean buscarLista(T elem, Node n, int contador) {
+	if ((contador < size)&&(!n.getValue() == elem.getValue())) {
+		return buscarLista(elem, n.getNext(), contador++);
+	} else {
+		if (contador >= size) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+} 
+
+public boolean buscarArreglo(T elem, int pos) {
+	if ((!elem == arreglo[pos])&&(pos < max)&&(arreglo[pos] < elem) {
+		return buscarArreglo(elem, pos++);
+	} else {
+		if (pos >= max) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+}
+
+1) Ambos algoritmos tienen complejidad O(n).
+2) La estructura no afecta en nada ya que tienen la misma logica.
+3) Si, ya que se le agrega la condicion (arreglo[pos] < elem), lo que logra 
+que se deje de seguir buscando el elemento una vez que te pasas de su valor.
