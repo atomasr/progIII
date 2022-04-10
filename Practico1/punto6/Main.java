@@ -35,6 +35,29 @@ public class Main {
         LinkedList<Integer> lista3 = intersectionList(lista1, lista2);
         lista3.print();
         
+        System.out.println("");
+      //B
+        LinkedList<Integer> lista4 = new LinkedList<>();
+        lista4.insertLast(1);
+        lista4.insertLast(2);
+        lista4.insertLast(3);
+        lista4.insertLast(4);
+        lista4.insertLast(5);
+        lista4.insertLast(6);
+        lista4.insertLast(7);
+        lista4.print();
+        
+        LinkedList<Integer> lista5 = new LinkedList<>();
+        lista5.insertLast(1);
+        lista5.insertLast(3);
+        lista5.insertLast(5);
+        lista5.insertLast(7);
+        lista5.insertLast(8);
+        lista5.insertLast(9);
+        lista5.print();
+        
+        LinkedList<Integer> lista6 = intersectionListOrder(lista4, lista5);
+        lista6.print();
         
     }
     
@@ -51,6 +74,23 @@ public class Main {
     		current1 = current1.getNext();
     	}
     	return listaFinal;
-    	
     }
+    
+    public static LinkedList<Integer> intersectionListOrder(LinkedList<Integer> lista1, LinkedList<Integer> lista2) {
+    	LinkedList<Integer> listaFinal = new LinkedList<>();
+    	Iterador<Integer> iter1 = lista1.iniciarRecorrido();
+    	Iterador<Integer> iter2 = lista2.iniciarRecorrido();
+    	while (iter1.hasNext()) {
+    		if (iter2.obtener() < iter1.obtener())
+        		iter2.avanzar();
+        	if (iter1.obtener() < iter2.obtener())
+        		iter1.avanzar();
+        	if (iter1.obtener() == iter2.obtener()) {
+        		listaFinal.insertLast(iter1.obtener());
+        		iter1.avanzar();
+        		iter2.avanzar();
+        	}
+    	}
+    	return listaFinal;
+    } //O(n) con iteradores, peor caso O(n^2)
 }

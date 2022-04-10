@@ -1,18 +1,36 @@
 package punto6;
 
 import java.util.Comparator;
+import java.util.Iterator;
 
-public class LinkedList<T> {
+public class LinkedList<T> implements Iterable<T> {
 
-    protected Node<T> first;
+	protected Node<T> first;
+    //private Node<T> current;
     protected Integer size;
 
     public LinkedList() {
         first = null;
+        //current = null;
         size = 0;
     }
     
+    public Iterador<T> iniciarRecorrido() {
+    	return new Iterador<T>(first);
+    }
     
+    /*public T obtener() {
+    	return current.getValue();
+    }
+    
+    public void avanzar() {
+    	current = current.getNext();
+    }*/
+    
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterador<T>(this.getFirst());
+    }
     
     public Node<T> getFirst() {
 		return first;
@@ -24,6 +42,19 @@ public class LinkedList<T> {
         first = tmp;
         size++;
     }
+	public void insertLast(T o) {
+		Node<T> tmp = new Node<>(o, null);
+		if (first == null) {
+			first = tmp;
+		} else {
+			Node<T> current = first;
+			while (current.getNext() != null) {
+				current = current.getNext();
+			}
+			current.setNext(tmp);
+		}
+        size++;
+	}
 	
 	public boolean buscar(T value) {
 		Node<T> current = first;
