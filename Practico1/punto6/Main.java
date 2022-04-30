@@ -32,7 +32,7 @@ public class Main {
         lista2.insertFront(12);
         lista2.print();
         
-        LinkedList<Integer> lista3 = intersectionList(lista1, lista2);
+        LinkedList<Integer> lista3 = mergeDisorderLists(lista1, lista2);
         lista3.print();
         
         System.out.println("");
@@ -61,7 +61,8 @@ public class Main {
         
     }
     
-    public static LinkedList<Integer> intersectionList(LinkedList<Integer> lista1, LinkedList<Integer> lista2) {
+    //Metodo Tomás
+    /** public static LinkedList<Integer> intersectionList(LinkedList<Integer> lista1, LinkedList<Integer> lista2) {
     	LinkedList<Integer> listaFinal = new LinkedList<>();
     	Comparator<Node> c1 = new ComparatorNumero();
     	Node<Integer> current1 = lista1.getFirst();
@@ -74,7 +75,20 @@ public class Main {
     		current1 = current1.getNext();
     	}
     	return listaFinal;
-    }
+    } **/
+    //Metodo Sofía
+    public static <T> LinkedList<T> mergeDisorderLists(LinkedList<T> lista1, LinkedList<T> lista2) {
+		LinkedList<T> listaCombinada = new LinkedList<>();
+		Node<T> current = lista1.getFirst();
+		while (current.getNext() != null) {
+			if (lista2.isIn(current.getValue())) {
+				listaCombinada.insertOrder(current.getValue());
+			}
+			current = current.getNext();
+		}
+		return listaCombinada;
+
+	}
     
     public static LinkedList<Integer> intersectionListOrder(LinkedList<Integer> lista1, LinkedList<Integer> lista2) {
     	LinkedList<Integer> listaFinal = new LinkedList<>();

@@ -1,6 +1,6 @@
 package punto6;
 
-public class Node<T> {
+public class Node<T> implements Comparable<Node>{
     private T value;
     private Node<T> next;
 
@@ -24,4 +24,9 @@ public class Node<T> {
     public void setNext(Node<T> n) {
         next = n;
     }
+
+	@Override
+	public int compareTo(Node nodo) {
+		return (int) getValue() - (int) nodo.getValue();
+	}
 }

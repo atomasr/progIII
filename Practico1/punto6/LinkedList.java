@@ -68,7 +68,42 @@ public class LinkedList<T> implements Iterable<T> {
 		return false;
 	}
 	
-	public void insertByOrder(T o, Comparator<Node> comp) {
+	//Metodo Sofía
+	public boolean isIn(T value) {
+		Node<T> current = first;
+		for (int i = 0; i < size; i++) {
+			if (current.getValue() == value) {
+				return true;
+			}
+			current = current.getNext();
+		}
+		return false;
+	}
+	public void insertOrder(T o) {
+		Node<T> tmp = new Node<>(o, null);
+		if (first == null) {
+			first = tmp;
+		} else {
+			if (first.compareTo(tmp) >= 0) {
+				this.insertFront(o);
+			} else {
+				Node<T> current = first;
+				while (current.getNext() != null && current.getNext().compareTo(tmp) < 0) {
+					current = current.getNext();
+				}
+				if (current.getNext() != null) {
+					Node<T> next = current.getNext();
+					current.setNext(new Node<>(o, next));
+				} else {
+					current.setNext(tmp);
+				}
+			}
+		}
+		size++;
+	}
+	
+	//Metodo Tomás
+	/** public void insertByOrder(T o, Comparator<Node> comp) {
     	Node<T> tmp = new Node<>(o, null);
     	Node<T> current = first;
     	if (current != null) {
@@ -86,7 +121,7 @@ public class LinkedList<T> implements Iterable<T> {
     	}
     	
         size++;
-    }
+    }**/
 
     public Node<T> extractFront() {
         if (first != null) {
