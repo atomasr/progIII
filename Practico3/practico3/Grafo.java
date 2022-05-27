@@ -1,4 +1,4 @@
-package punto_3_1;
+package practico3;
 
 import java.util.Iterator;
 

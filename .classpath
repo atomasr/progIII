@@ -3,6 +3,7 @@
 	<classpathentry kind="src" path="Practico1"/>
 	<classpathentry kind="src" path="Practico2"/>
 	<classpathentry kind="src" path="Practico3"/>
+	<classpathentry kind="src" path="TPE"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
 		<attributes>
 			<attribute name="module" value="true"/>

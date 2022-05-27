@@ -1,4 +1,4 @@
-package punto_3_1;
+package practico3;
 
 import java.util.Iterator;
 import java.util.Set;
@@ -7,7 +7,12 @@ import java.util.HashMap;
 
 public class GrafoDirigido<T> implements Grafo<T> {
 	private HashMap<Integer, ArrayList<Arco<T>>> grafo;
-
+	
+	public GrafoDirigido() {
+		this.grafo = new HashMap<>();
+	}
+	
+	//3.1
 	@Override
 	public void agregarVertice(int verticeId) {
 		grafo.put(verticeId, new ArrayList<>());
